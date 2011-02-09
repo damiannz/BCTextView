@@ -338,20 +338,22 @@ typedef enum {
 	return fontSize;
 }
 
+// DS: changed the hardcoded font names for the desired font
+
 - (UIFont *)regularFont {
-	return [UIFont fontWithName:@"Helvetica" size:self.fontSize];
+	return [UIFont fontWithName:@"HelveticaNeue" size:self.fontSize];
 }
 
 - (UIFont *)boldFont {
-	return [UIFont fontWithName:@"Helvetica-Bold" size:self.fontSize];
+	return [UIFont fontWithName:@"HelveticaNeue-Bold" size:self.fontSize];
 }
 
 - (UIFont *)italicFont {
-	return [UIFont fontWithName:@"Helvetica-Oblique" size:self.fontSize];
+	return [UIFont fontWithName:@"HelveticaNeue-Italic" size:self.fontSize];
 }
 
 - (UIFont *)boldItalicFont {
-	return [UIFont fontWithName:@"Helvetica-BoldOblique" size:self.fontSize];
+	return [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:self.fontSize];
 }
 
 - (UIFont *)fontWithAttributes:(BCTextNodeAttributes)attr {

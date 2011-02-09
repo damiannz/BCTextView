@@ -348,6 +348,7 @@
 				GCC_PREFIX_HEADER = example/prefix.pch;
 				INFOPLIST_FILE = example/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					QuartzCore,
@@ -401,6 +402,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = src/prefix.pch;
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.2;
 				OTHER_CFLAGS = "-D__IPHONE_OS_VERSION_MIN_REQUIRED=030103";
 				OTHER_LDFLAGS = (
 					"-framework",

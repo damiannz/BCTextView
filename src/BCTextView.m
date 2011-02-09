@@ -18,6 +18,16 @@
 	return self;
 }
 
+- (UIColor *) textColor
+{
+	return self.textFrame.textColor;
+}
+
+- (void) setTextColor: (UIColor *) theColor
+{
+	self.textFrame.textColor = theColor;
+}
+
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 	[[UIColor blackColor] set];

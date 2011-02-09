@@ -10,4 +10,7 @@
 
 @property (nonatomic) CGFloat fontSize;
 
+// DS: added this property for the ability to change text color
+@property (nonatomic, retain) UIColor *textColor;
+
 @end
