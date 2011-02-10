@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5599BACF130353B2003868FA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5599BACE130353B2003868FA /* libxml2.dylib */; };
 		D31F59C7125E5118002E2C67 /* BCBlockBorder.h in Headers */ = {isa = PBXBuildFile; fileRef = D31F59C5125E5118002E2C67 /* BCBlockBorder.h */; };
 		D31F59C8125E5118002E2C67 /* BCBlockBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D31F59C6125E5118002E2C67 /* BCBlockBorder.m */; };
 		D31F59FB125E5264002E2C67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31F59FA125E5264002E2C67 /* QuartzCore.framework */; };
@@ -31,10 +32,8 @@
 		D3AA65A9125B56D70035A8C8 /* EXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AA65A3125B56D70035A8C8 /* EXAppDelegate.m */; };
 		D3AA65AC125B56D70035A8C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AA65A7125B56D70035A8C8 /* main.m */; };
 		D3AA65D1125B584F0035A8C8 /* prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = D3AA65D0125B584F0035A8C8 /* prefix.pch */; };
-		D3AA65DC125B58F40035A8C8 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AA65DA125B58ED0035A8C8 /* libxml2.2.7.3.dylib */; };
 		D3AA6646125B5C3E0035A8C8 /* EXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AA6645125B5C3E0035A8C8 /* EXViewController.m */; };
 		D3AA666A125B5DF00035A8C8 /* libBCTextView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AA6553125B56600035A8C8 /* libBCTextView.a */; };
-		D3AA666D125B5DFA0035A8C8 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AA65DA125B58ED0035A8C8 /* libxml2.2.7.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +50,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5599BACE130353B2003868FA /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D31F59C5125E5118002E2C67 /* BCBlockBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCBlockBorder.h; sourceTree = "<group>"; };
 		D31F59C6125E5118002E2C67 /* BCBlockBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCBlockBorder.m; sourceTree = "<group>"; };
 		D31F59FA125E5264002E2C67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -75,7 +75,6 @@
 		D3AA65CA125B58080035A8C8 /* BCTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTextView.h; sourceTree = "<group>"; };
 		D3AA65CB125B58080035A8C8 /* BCTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTextView.m; sourceTree = "<group>"; };
 		D3AA65D0125B584F0035A8C8 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
-		D3AA65DA125B58ED0035A8C8 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		D3AA661B125B5ADA0035A8C8 /* BCTextFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCTextFrame.h; sourceTree = "<group>"; };
 		D3AA661C125B5ADA0035A8C8 /* BCTextFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCTextFrame.m; sourceTree = "<group>"; };
 		D3AA6644125B5C3E0035A8C8 /* EXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXViewController.h; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AA666A125B5DF00035A8C8 /* libBCTextView.a in Frameworks */,
-				D3AA666D125B5DFA0035A8C8 /* libxml2.2.7.3.dylib in Frameworks */,
 				D31F59FB125E5264002E2C67 /* QuartzCore.framework in Frameworks */,
 				D31F5A4B125E52FD002E2C67 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -98,9 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3AA65DC125B58F40035A8C8 /* libxml2.2.7.3.dylib in Frameworks */,
 				D31F5A12125E526E002E2C67 /* QuartzCore.framework in Frameworks */,
 				D31F5A4A125E52FC002E2C67 /* CoreGraphics.framework in Frameworks */,
+				5599BACF130353B2003868FA /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,11 +129,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
-				D3AA65DA125B58ED0035A8C8 /* libxml2.2.7.3.dylib */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				D31F59FA125E5264002E2C67 /* QuartzCore.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				5599BACE130353B2003868FA /* libxml2.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,7 +143,6 @@
 			children = (
 				D3AA65CA125B58080035A8C8 /* BCTextView.h */,
 				D3AA65CB125B58080035A8C8 /* BCTextView.m */,
-				D3AA65D0125B584F0035A8C8 /* prefix.pch */,
 				D3AA661B125B5ADA0035A8C8 /* BCTextFrame.h */,
 				D3AA661C125B5ADA0035A8C8 /* BCTextFrame.m */,
 				D3844569125C81E400B5561E /* BCTextLine.h */,
@@ -158,6 +155,7 @@
 				D349697E125DEB1C0008039B /* BCNode.m */,
 				D31F59C5125E5118002E2C67 /* BCBlockBorder.h */,
 				D31F59C6125E5118002E2C67 /* BCBlockBorder.m */,
+				D3AA65D0125B584F0035A8C8 /* prefix.pch */,
 			);
 			path = src;
 			sourceTree = "<group>";

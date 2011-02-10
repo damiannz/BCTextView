@@ -11,14 +11,16 @@ typedef enum {
 	BCTextNodeLink = 1 << 2,
 } BCTextNodeAttributes;
 
-@interface BCTextFrame ()
+@interface BCTextFrame (/* Private */)
+
 - (UIFont *)fontWithAttributes:(BCTextNodeAttributes)attr;
 
-@property (nonatomic, retain) NSMutableArray *lines;
 @property (nonatomic, retain) BCTextLine *currentLine;
+
 @end
 
 @implementation BCTextFrame
+
 @synthesize fontSize, height, width, lines, textColor, linkColor, delegate, indented, links;
 
 - (id)init {

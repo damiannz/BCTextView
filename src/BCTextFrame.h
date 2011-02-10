@@ -36,10 +36,12 @@
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, retain) UIColor *linkColor;
 @property (nonatomic, assign) id <BCTextFrameDelegate> delegate;
+@property (nonatomic, retain) NSMutableArray *lines;
 
 @end
 
 @protocol BCTextFrameDelegate
+
 - (void)link:(NSValue *)link touchedInRects:(NSArray *)rects;
 - (void)link:(NSValue *)link touchedUpInRects:(NSArray *)rects;
 - (UIImage *)imageForURL:(NSString *)url;

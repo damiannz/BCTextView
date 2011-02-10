@@ -1,21 +1,33 @@
 #import "BCTextView.h"
 #import "BCTextFrame.h"
 
-@interface BCTextView ()
-@property (nonatomic, retain) BCTextFrame *textFrame;
+@interface BCTextView (/* Private */)
+
 @property (nonatomic, retain) NSArray *linkHighlights;
+
 @end
 
-
 @implementation BCTextView
+
 @synthesize textFrame, linkHighlights;
 
-- (id)initWithHTML:(NSString *)html {
-	if ((self = [super init])) {
-		self.textFrame = [[[BCTextFrame alloc] initWithHTML:html] autorelease];
-		self.textFrame.delegate = (id <BCTextFrameDelegate>)self;
+- (id)initWithHTML:(NSString *)html
+{
+	if ((self = [super init]))
+	{
+		textFrame = [[BCTextFrame alloc] initWithHTML:html];
+		textFrame.delegate = (id <BCTextFrameDelegate>)self;
 	}
+	
 	return self;
+}
+
+- (void)dealloc
+{
+	[textFrame release];
+	[linkHighlights release];
+
+	[super dealloc];
 }
 
 - (UIColor *) textColor
@@ -92,12 +104,6 @@
 	for (UIView *v in self.linkHighlights) {
 		[v removeFromSuperview];
 	}
-}
-
-- (void)dealloc {
-	self.textFrame = nil;
-	self.linkHighlights = nil;
-	[super dealloc];
 }
 
 @end

@@ -3,7 +3,9 @@
 #import <libxml/HTMLparser.h>
 
 @interface BCTextLine ()
+
 @property (nonatomic, retain) NSMutableArray *stack;
+
 @end
 
 @implementation BCTextLine

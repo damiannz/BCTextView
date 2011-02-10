@@ -1,6 +1,7 @@
 @class BCTextFrame;
 
-@interface BCTextView : UIView {
+@interface BCTextView : UIView
+{
 	BCTextFrame *textFrame;
 	NSArray *linkHighlights;
 }
@@ -10,7 +11,11 @@
 
 @property (nonatomic) CGFloat fontSize;
 
-// DS: added this property for the ability to change text color
+/*!
+ @updated 8 Feb 2011 by DS
+ Added this property for the ability to change text color.
+ */
 @property (nonatomic, retain) UIColor *textColor;
+@property (nonatomic, readonly) BCTextFrame *textFrame;
 
 @end
