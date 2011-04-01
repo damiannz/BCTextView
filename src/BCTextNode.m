@@ -22,7 +22,8 @@
 	[super dealloc];
 }
 
-- (void)drawAtPoint:(CGPoint)point {
+- (void)drawAtPoint:(CGPoint)point
+{
 	[self.text drawAtPoint:point withFont:self.font];	
 }
 

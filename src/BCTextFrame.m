@@ -33,6 +33,10 @@ typedef enum {
 }
 
 - (id)initWithHTML:(NSString *)html {
+
+	// TODO: Remove this test string
+	// html = @"<b>Interpol, Fleet Foxes, Sufjan Stevens, The National, </b>and 124 more";
+	
 	if ((self = [self init])) {
 		CFStringEncoding cfenc = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
 		CFStringRef cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc);
@@ -95,6 +99,7 @@ typedef enum {
 		self.currentLine.height = self.fontSize;
 	}
 	self.currentLine = line;
+	whitespaceNeeded = NO;
 }
 
 - (void)pushNewline {
@@ -113,13 +118,38 @@ typedef enum {
 
 - (void)pushText:(NSString *)text withFont:(UIFont *)font link:(NSValue *)link {
 	CGSize size = [text sizeWithFont:font];
+	
+	NSCharacterSet *commaCharset = [NSCharacterSet characterSetWithCharactersInString:@","];
 
-	if (size.width > self.currentLine.widthRemaining) {
+	BOOL singlePunctuationSign = text.length == 1 && [text rangeOfCharacterFromSet:commaCharset].location == 0;
+	
+	if (size.width > self.currentLine.widthRemaining && !singlePunctuationSign) {
+		
 		NSRange spaceRange = [text rangeOfCharacterFromSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 		
 		// a word that needs to wrap
-		if (spaceRange.location == NSNotFound || spaceRange.location == text.length - 1) {
+		if (spaceRange.location == NSNotFound || spaceRange.location == text.length - 1)
+		{
+			// AN: Here we adapt the algorithm only for one punctuation char. 
+			// It can be extended for a punctuation series when needed.
+			
+			NSRange punctuationRange = [text rangeOfCharacterFromSet:commaCharset];
+			
+			if (punctuationRange.location == 0 && text.length > 1)
+			{
+				[self pushText:[text substringToIndex:1] withFont:font link:nil];
+				text = [text substringFromIndex:1];
+			}
+			
 			[self pushNewline];
+			
+			if ([text isEqualToString:@" "])
+			{
+				return;
+			}
+			
+			////////////////////////////////////////////////////////////////////////////////////
+			
 			if (size.width > self.currentLine.width) { // word is too long even for its own line
 				CGFloat partWidth;
 				NSString *textPart = nil;
@@ -145,7 +175,8 @@ typedef enum {
 					  link:link];
 		}
 	} else {
-		BCTextNode *n = [[[BCTextNode alloc] initWithText:text font:font width:size.width height:size.height link:link != nil] autorelease];
+		BCTextNode *n = [[[BCTextNode alloc] initWithText:text font:font width:size.width height:size.height
+													 link:link != nil] autorelease];
 		
 		if (link) {
 			[self addLink:link forRect:CGRectMake((self.currentLine.width - self.currentLine.widthRemaining) - 4, 
@@ -233,7 +264,8 @@ typedef enum {
 					childrenAttr |= BCTextNodeItalic; 
 				} else if (!strcmp((char *)curNode->name, "a")) {
 					childrenAttr |= BCTextNodeLink;
-					[self layoutNode:curNode->children attributes:childrenAttr linkTarget:[NSValue valueWithPointer:curNode]];
+					[self layoutNode:curNode->children attributes:childrenAttr
+						  linkTarget:[NSValue valueWithPointer:curNode]];
 					continue;
 				} else if (!strcmp((char *)curNode->name, "br")) {
 					[self pushNewline];

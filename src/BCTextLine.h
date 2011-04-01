@@ -19,7 +19,6 @@
 @property (nonatomic) CGFloat y;
 @property (nonatomic) BOOL indented;
 
-
 @end
 
 #define kIndentWidth 10
