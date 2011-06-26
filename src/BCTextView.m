@@ -9,7 +9,7 @@
 
 @implementation BCTextView
 
-@synthesize textFrame, linkHighlights;
+@synthesize textFrame, linkHighlights, linkHighlightColor;
 
 - (id)initWithHTML:(NSString *)html
 {
@@ -17,6 +17,7 @@
 	{
 		textFrame = [[BCTextFrame alloc] initWithHTML:html];
 		textFrame.delegate = (id <BCTextFrameDelegate>)self;
+		self.linkHighlightColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
 	}
 	
 	return self;
@@ -26,6 +27,7 @@
 {
 	[textFrame release];
 	[linkHighlights release];
+	self.linkHighlightColor = nil;
 
 	[super dealloc];
 }
@@ -64,6 +66,15 @@
 	return [UIImage imageNamed:@"emot-sweden.gif"];
 }
 
+- (void)clearHighlightFrames
+{
+	for (UIView *v in self.linkHighlights) {
+		[v removeFromSuperview];
+	}
+	[self.linkHighlights removeAllObjects];
+	
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	CGPoint point = [[touches anyObject] locationInView:self];
 	[self.textFrame touchBeganAtPoint:point];
@@ -76,24 +87,25 @@
 	[self.textFrame touchEndedAtPoint:point];
 	[self setNeedsDisplay];
 	[super touchesEnded:touches withEvent:event];
+	
+	[self clearHighlightFrames];
+	
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
 	[self.textFrame touchCancelled];
 	[self setNeedsDisplay];
 	[super touchesCancelled:touches withEvent:event];
+
+	[self clearHighlightFrames];
 }
 
 - (void)link:(NSValue *)link touchedInRects:(NSArray *)rects {
-	for (UIView *v in self.linkHighlights) {
-		[v removeFromSuperview];
-	}
-	
 	NSMutableArray *views = [NSMutableArray arrayWithCapacity:rects.count];
 	for (NSValue *v in rects) {
 		CGRect r = [v CGRectValue];
 		UIView *view = [[[UIView alloc] initWithFrame:r] autorelease];
-		view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+		view.backgroundColor = linkHighlightColor;
 		[self addSubview:view];
 		[views addObject:view];
 	}

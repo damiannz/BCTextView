@@ -4,6 +4,7 @@
 {
 	BCTextFrame *textFrame;
 	NSArray *linkHighlights;
+	UIColor *linkHighlightColor;
 }
 
 - (id)initWithHTML:(NSString *)html;
@@ -17,5 +18,6 @@
  */
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, readonly) BCTextFrame *textFrame;
+@property (nonatomic, retain) UIColor *linkHighlightColor;
 
 @end
